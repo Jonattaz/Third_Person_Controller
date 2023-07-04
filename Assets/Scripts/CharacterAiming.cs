@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class CharacterAiming : MonoBehaviour
 {
 
     public float turnSpeed = 15;
-    Camera mainCamera;
+    public float aimDuration = 0.3f;
 
+    public Rig aimLayer;
+
+    Camera mainCamera;
+    
     // Start is called before the first frame update
     void Start(){
         mainCamera = Camera.main;
@@ -19,5 +24,13 @@ public class CharacterAiming : MonoBehaviour
         float yamCamera = mainCamera.transform.rotation.eulerAngles.y;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yamCamera, 0)
             , turnSpeed * Time.deltaTime);        
+    }
+
+    void Update(){
+        if(Input.GetMouseButton(1)){
+            aimLayer.weight += Time.deltaTime / aimDuration;
+        }else{
+            aimLayer.weight -= Time.deltaTime / aimDuration;
+        }
     }
 }
