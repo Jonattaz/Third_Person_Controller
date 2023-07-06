@@ -9857,7 +9857,7 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   tracerEffect: {fileID: 8947730507573351115, guid: 8fc551c1b947e8043bc32ee76b7b4be8,
     type: 3}
-  weaponAnimation: {fileID: 7400000, guid: 518deb1e0f4a5054abdefb23ef335798, type: 2}
+  weaponName: PistolWaterGun
 --- !u!1 &7469172589155157686
 GameObject:
   m_ObjectHideFlags: 0

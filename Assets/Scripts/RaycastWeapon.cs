@@ -20,7 +20,7 @@ public class RaycastWeapon : MonoBehaviour
     public Transform raycastOrigin;
     public Transform raycastDestination;
     public TrailRenderer tracerEffect;
-    public AnimationClip weaponAnimation;
+    public string weaponName;
     Ray ray;
     RaycastHit hitInfo;
     float accumulatedTime;
