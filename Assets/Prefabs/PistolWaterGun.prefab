@@ -9845,10 +9845,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0cf6ca65be647146a851476ea1bff68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponSlot: 1
   isFiring: 0
   fireRate: 10
   bulletSpeed: 1000
-  bulletDrop: 0
+  bulletDrop: 1
+  maxBounces: 1
   hitEffect: {fileID: 9081728076718108466}
   muzzleFlash:
   - {fileID: 7306685934086030807}
