@@ -15,6 +15,7 @@ public class ActiveWeapon : MonoBehaviour
     public Transform weaponLeftGrip;
     public Transform weaponRightGrip;
     public Animator rigController;
+    public Cinemachine.CinemachineFreeLook playerCamera;
     public Transform[] weaponSlots;
 
 
@@ -55,13 +56,13 @@ public class ActiveWeapon : MonoBehaviour
                 weapon.UpdateFiring(Time.deltaTime);
             }
 
-            weapon.UpdateBullets(Time.deltaTime);
-
             if(!shooting){
                 weapon.StopFiring();
             }
+             weapon.UpdateBullets(Time.deltaTime);
         }
         
+
          if(Input.GetKeyDown(KeyCode.X)){
             ToggleActiveWeapon();
         }
@@ -86,6 +87,8 @@ public class ActiveWeapon : MonoBehaviour
 
         weapon = newWeapon;
         weapon.raycastDestination = crossHairTarget;
+        weapon.recoil.playerCamera = playerCamera;
+        weapon.recoil.rigController = rigController;
         weapon.transform.SetParent(weaponSlots[weaponSlotIndex], false);
         equippedWeapons[weaponSlotIndex] = weapon;
 

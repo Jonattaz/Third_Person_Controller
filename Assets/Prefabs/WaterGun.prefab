@@ -9808,6 +9808,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7469172588208014381}
   - component: {fileID: 7469172588208014380}
+  - component: {fileID: -6897335409693311358}
+  - component: {fileID: 7385506560814273253}
   m_Layer: 0
   m_Name: WaterGun
   m_TagString: Untagged
@@ -9851,6 +9853,7 @@ MonoBehaviour:
   bulletSpeed: 1000
   bulletDrop: 3
   maxBounces: 2
+  maxLifeTime: 0
   hitEffect: {fileID: 9081728076718108466}
   muzzleFlash:
   - {fileID: 7306685934086030807}
@@ -9860,6 +9863,80 @@ MonoBehaviour:
   tracerEffect: {fileID: 8947730507573351115, guid: 8fc551c1b947e8043bc32ee76b7b4be8,
     type: 3}
   weaponName: WaterGun
+  recoil: {fileID: 0}
+--- !u!114 &-6897335409693311358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469172588208014378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90f6b8075bcb3541892b635057e2604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  cameraShake: {fileID: 0}
+  rigController: {fileID: 0}
+  recoilPattern:
+  - {x: 10, y: 10}
+  - {x: 7, y: 7}
+  - {x: 5, y: 5}
+  duration: 0.1
+--- !u!114 &7385506560814273253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469172588208014378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 3
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 11400000, guid: 8d270e1fea0de0e47aec4fd6bb7cf6e5, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!1 &7469172589155157686
 GameObject:
   m_ObjectHideFlags: 0
