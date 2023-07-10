@@ -25,22 +25,5 @@ public class CharacterAiming : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yamCamera, 0)
             , turnSpeed * Time.deltaTime);        
     }
-
-    void LateUpdate(){
-        if(weapon){
-            if(Input.GetButtonDown("Fire1")){
-                weapon.StartFiring();
-            }
-
-            if(weapon.isFiring){
-                weapon.UpdateFiring(Time.deltaTime);
-            }
-
-            weapon.UpdateBullets(Time.deltaTime);
-
-            if(Input.GetButtonUp("Fire1")){}
-                weapon.StartFiring();
-            }
-        }
-    }
+}
 

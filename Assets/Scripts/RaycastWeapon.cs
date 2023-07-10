@@ -25,14 +25,20 @@ public class RaycastWeapon : MonoBehaviour
     public Transform raycastDestination;
     public TrailRenderer tracerEffect;
     public string weaponName;
+    public AmmoWidget ammoWidget;
+    public int ammoCount;
+    public int clipSize; 
+
     public WeaponRecoil recoil;
+    public GameObject magazine;
     Ray ray;
     RaycastHit hitInfo;
     float accumulatedTime;
     List<Bullet> bullets = new List<Bullet>();
 
     void Awake(){
-        recoil = GetComponent<WeaponRecoil>();        
+        recoil = GetComponent<WeaponRecoil>();
+        ammoWidget = FindObjectOfType<AmmoWidget>();
     }
 
     Vector3 GetPosition(Bullet bullet){
@@ -53,10 +59,11 @@ public class RaycastWeapon : MonoBehaviour
     }
 
     public void StartFiring(){
+        ammoCount--;
         isFiring = true;
         accumulatedTime = 0.0f;
         FireBullet();
-
+        ammoWidget.Refresh(ammoCount);
         recoil.Reset();
        
     }
@@ -123,7 +130,13 @@ public class RaycastWeapon : MonoBehaviour
     }
 
     private void FireBullet(){
-         foreach(var particle in muzzleFlash){
+
+        if(ammoCount <= 0){
+            return;
+        }
+
+        
+        foreach(var particle in muzzleFlash){
             particle.Emit(1);
         }
 
@@ -131,7 +144,6 @@ public class RaycastWeapon : MonoBehaviour
         var bullet = CreateBullet(raycastOrigin.position, velocity);
         bullets.Add(bullet);
         recoil.GenerateRecoil(weaponName);
-
       
     }
 
