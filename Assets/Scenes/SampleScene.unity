@@ -2522,6 +2522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 4849538201562697}
+  maxTime: 1
+  maxDistance: 1
 --- !u!114 &1224676790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5723,8 +5725,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
   m_Controller: {fileID: 9100000, guid: ddd29fbc2094ffb488198c1b7896c872, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
+  m_CullingMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
