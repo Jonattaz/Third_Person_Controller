@@ -10241,8 +10241,10 @@ MonoBehaviour:
   tracerEffect: {fileID: 8947730507573351115, guid: 8fc551c1b947e8043bc32ee76b7b4be8,
     type: 3}
   weaponName: WaterGun
+  ammoWidget: {fileID: 0}
   ammoCount: 15
   clipSize: 15
+  damage: 10
   recoil: {fileID: 0}
   magazine: {fileID: 7467672837256040201}
 --- !u!114 &-6897335409693311358
@@ -10257,7 +10259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f90f6b8075bcb3541892b635057e2604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
+  characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
   recoilPattern:
@@ -10265,6 +10267,7 @@ MonoBehaviour:
   - {x: 7, y: 7}
   - {x: 5, y: 5}
   duration: 0.1
+  recoilModifier: 1
 --- !u!114 &7385506560814273253
 MonoBehaviour:
   m_ObjectHideFlags: 0

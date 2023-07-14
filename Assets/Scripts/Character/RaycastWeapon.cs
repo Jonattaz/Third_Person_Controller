@@ -28,6 +28,7 @@ public class RaycastWeapon : MonoBehaviour
     public AmmoWidget ammoWidget;
     public int ammoCount;
     public int clipSize; 
+    public int damage = 10;
 
     public WeaponRecoil recoil;
     public GameObject magazine;
@@ -121,6 +122,11 @@ public class RaycastWeapon : MonoBehaviour
             var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
             if(rb2d){
                 rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
+            }
+
+            var hitbox = hitInfo.collider.GetComponent<HitBox>();
+            if(hitbox){
+                hitbox.OnRaycastHit(this, ray.direction);
             }
 
 
