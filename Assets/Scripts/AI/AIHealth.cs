@@ -5,9 +5,8 @@ using UnityEngine;
 public class AIHealth : MonoBehaviour
 {
     public float maxHealth;
-    public float dieForce;
     public float currenthealth;
-    Ragdoll ragdoll;
+    AIAgent agent;
     SkinnedMeshRenderer skinnedMeshRenderer;
     UIHealthBar healthBar;
 
@@ -17,7 +16,7 @@ public class AIHealth : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        ragdoll = GetComponent<Ragdoll>();
+        agent = GetComponent<AIAgent>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         healthBar = GetComponentInChildren<UIHealthBar>();
         currenthealth = maxHealth;
@@ -39,10 +38,9 @@ public class AIHealth : MonoBehaviour
     }
 
     public void Die(Vector3 direction){
-        ragdoll.ActivateRagdoll();
-        direction.y = 1;
-        ragdoll.ApplyForce(direction * dieForce);
-        healthBar.gameObject.SetActive(false);
+        AIDeathState deathState = agent.stateMachine.GetState(AIStateId.Death) as AIDeathState;
+        deathState.direction = direction;
+        agent.stateMachine.ChangeState(AIStateId.Death);
     }
 
     /// Update is called every frame, if the MonoBehaviour is enabled.

@@ -5,15 +5,8 @@ using UnityEngine.AI;
 
 public class AILocomotion : MonoBehaviour
 {
-    public Transform playerTransform;
-    //Second
-    public float maxTime = 1.0f;
-    //Meter
-    public float maxDistance = 1.0f;
-
     NavMeshAgent agent;
     Animator animator;
-    float timer = 0.0f;
 
     // Start is called before the first frame update
     void Start(){
@@ -23,14 +16,11 @@ public class AILocomotion : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        timer -= Time.deltaTime;
-        if(timer < 0.0f){
-            float sqDistance = (playerTransform.position - agent.destination).sqrMagnitude;
-            if(sqDistance > maxDistance * maxDistance){
-                agent.destination = playerTransform.position;
-            }
-            timer = maxTime;
+        
+        if(agent.hasPath){
+            animator.SetFloat("Speed", agent.velocity.magnitude);
+        }else{
+            animator.SetFloat("Speed", 0);
         }
-        animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 }
