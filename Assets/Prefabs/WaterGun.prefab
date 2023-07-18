@@ -10188,6 +10188,7 @@ GameObject:
   - component: {fileID: 7469172588208014380}
   - component: {fileID: -6897335409693311358}
   - component: {fileID: 7385506560814273253}
+  - component: {fileID: 6434827595263849160}
   m_Layer: 0
   m_Name: WaterGun
   m_TagString: Untagged
@@ -10321,6 +10322,19 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!65 &6434827595263849160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469172588208014378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.12243822, y: 0.243445, z: 0.7464622}
+  m_Center: {x: -0.0036640689, y: -0.08847254, z: 0.43414116}
 --- !u!1 &7469172589155157686
 GameObject:
   m_ObjectHideFlags: 0

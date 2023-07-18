@@ -15,7 +15,8 @@ public class AIDeathState : AIState{
         direction.y = 1;
         agent.ragdoll.ApplyForce(direction *agent.config.dieForce);
         agent.ui.gameObject.SetActive(false);
-        agent.mesh.updateWhenOffscreen = true;        
+        agent.mesh.updateWhenOffscreen = true; 
+        agent.weapons.DropWeapon();       
     }
 
     public void Update(AIAgent agent){

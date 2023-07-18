@@ -13,6 +13,7 @@ public class AIAgent : MonoBehaviour
     public SkinnedMeshRenderer mesh;
     public UIHealthBar ui;
     public Transform playerTransform;
+    public AIWeapons weapons;
 
 
     // Start is called before the first frame update
@@ -21,11 +22,13 @@ public class AIAgent : MonoBehaviour
         mesh = GetComponentInChildren<SkinnedMeshRenderer>();
         ui = GetComponentInChildren<UIHealthBar>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        weapons = GetComponent<AIWeapons>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         stateMachine = new AIStateMachine(this);
         stateMachine.RegisterState(new AIChasePlayerState());
         stateMachine.RegisterState(new AIDeathState());
         stateMachine.RegisterState(new AIIdleState());
+        stateMachine.RegisterState(new AIFindWeaponState());
         stateMachine.ChangeState(initialState);
     }
 
