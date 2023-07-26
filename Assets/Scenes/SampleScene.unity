@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 15
   aimDuration: 0.3
+  isAiming: 0
   cameraLookAt: {fileID: 935713784}
   xAxis:
     Value: 0
@@ -5261,7 +5262,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
   m_Controller: {fileID: 9100000, guid: ddd29fbc2094ffb488198c1b7896c872, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
